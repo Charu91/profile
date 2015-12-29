@@ -22,6 +22,40 @@ class ProfileController extends Controller
 	
     public function upload()
     {
+		if ($request->isMethod('post')) 
+		{
+			$arrRules = array(
+							'first_name' 	=> 'required|max:255',
+							'last_name'     => 'required|max:255',    
+							'bio'   		=> 'required|max:255',
+							'gender' 		=> 'required',
+							'photo'    		=> 'required',
+							);
+			
+			$data = $request->all();	
+			$validator = Validator::make($data,$arrRules);
+			if($validator->fails())
+			{
+				return Redirect::to('/upload')->withErrors($validator)->withInput();
+			}
+		
+			 $first_name  	= (!isset($data['first_name'])) ? NULL : $data['first_name'];
+			 $last_name     = (!isset($data['last_name'])) ? NULL : $data['last_name'];
+			 $bio  			= (!isset($data['bio'])) ? NULL : $data['bio'];
+			 $gender 		= (!isset($data['gender'])) ? NULL : $data['gender'];
+			 $photo  		= (!isset($data['photo'])) ? NULL : $data['photo'];
+							
+			 $Profile = new Profile;
+			 $Profile->first_name = $request->first_name;
+			 $Profile->last_name = $request->last_name;
+			 $Profile->bio = $request->bio;
+			 $Profile->gender = $request->gender;
+			 $Profile->photo = $request->photo;
+			
+			 $Profile->save();
+			 
+		//	 return Redirect::to('/upload/');
+		}
 		
 		
 		if(Input::hasFile('file'))
