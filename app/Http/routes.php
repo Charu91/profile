@@ -14,8 +14,10 @@
 Route::get('/', function () {
     return view('welcome');
 });
-
-Route::get('/profile', 'ProfileController@profile');
+//Route::get('/profile','ProfileController@profile');
+//Route::post('/upload', 'ProfileController@upload');
+Route::get('profile',   ['as' => 'profile', 'uses' => 'ProfileController@profile']);
+Route::post('upload',  ['as' => 'upload', 'uses' => 'ProfileController@upload']);
 
 /*
 |--------------------------------------------------------------------------
