@@ -37,19 +37,19 @@
 						<div class="form-group">
 						<label class="col-md-4 control-label">Gender</label>
                             <div class="col-md-6">
-								 <input type="radio" name="gender" value="male" checked> Male 
-								  <input type="radio" name="gender" value="female"> Female
+								 <input type="radio" name="gender" value="Male" checked> Male 
+								  <input type="radio" name="gender" value="Female"> Female
 							</div>
 						</div></br></br>
 						
 						<div class="form-group">
 						<label class="col-md-4 control-label">Select image to upload</label>
 							<div class="col-md-6">
-								<input type="file" class="form-control" name="file" id="file"></br> </br>
+								<input type="file" class="form-control" name="photo" id="file"></br> </br>
 								
 								<button class="btn primary-btn" type="submit" value="upload" name="submit">Upload</button>
-						<!--		<input type="submit' value="upload" name="submit">	-->
-								<input type="hidden" value="{{csrf_token() }}" name="_token">
+						<!--		<input type="file" name="foto" value="{{csrf_token() }}">	-->
+								<input type="hidden" value="{{csrf_token() }}" name="_token">	
 							</div>
 						</div>
 						</form>				

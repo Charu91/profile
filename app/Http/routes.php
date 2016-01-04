@@ -18,6 +18,7 @@ Route::get('/', function () {
 //Route::post('/upload', 'ProfileController@upload');
 Route::get('profile',   ['as' => 'profile', 'uses' => 'ProfileController@profile']);
 Route::post('upload',  ['as' => 'upload', 'uses' => 'ProfileController@upload']);
+Route::get('viewProfile', 'ProfileController@showProfile' );
 
 /*
 |--------------------------------------------------------------------------
