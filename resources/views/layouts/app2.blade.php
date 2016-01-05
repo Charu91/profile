@@ -23,6 +23,15 @@
         .fa-btn {
             margin-right: 6px;
         }
+		.sub
+		{
+			visibility:hidden;
+		}
+		.nav li:hover .sub
+		{
+			visibility:visible;
+		}
+		
     </style>
 </head>
 <body id="app-layout">
@@ -46,11 +55,18 @@
 
             <div class="collapse navbar-collapse" id="spark-navbar-collapse">
                 <!-- Left Side Of Navbar -->
-                <ul class="nav navbar-nav">
-                    <li><a href="{{ url('/home') }}">Home</a></li>
-					<li><a href="{{ url('/profile') }}">Profile</a></li>
-                </ul>
-
+					<ul class="nav navbar-nav">
+						<li><a href="{{ url('/home') }}">Home</a></li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Profile<b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href="{{ url('/viewProfile') }}">View Profile</a></li>
+								<li><a href="{{ url('/profile') }}">Create Profile</a></li>
+						 <!--		<li><a href="#">Edit Profile</a></li>	-->
+							</ul>
+						</li>
+					</ul>
+					
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->
